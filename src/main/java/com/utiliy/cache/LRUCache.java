@@ -9,7 +9,7 @@ import java.util.TreeMap;
 
 public class LRUCache {
 	private static final int SIZE = 3;
-	private Map<Integer, Student> map = new TreeMap<Integer, Student>();
+	public Map<Integer, Student> map = new TreeMap<Integer, Student>();
 	MarksComparator marksComparator = new MarksComparator();
 	DateComparator dateComparator = new DateComparator();
 	
@@ -48,6 +48,7 @@ public class LRUCache {
 	public Student get(int key) {
 		Student std = map.get(key);
 		if (std!=null) {
+			System.out.println("Updating "+key+" with current timestamp.");
 			update(key,std.getMarks(),std.getSubjectEnrolled());
 		}
 		return std;
@@ -55,32 +56,26 @@ public class LRUCache {
 
 	public void put(int key, int marks,String subjectEnrolled) {
 		if (map.containsKey(key)) {
+			System.out.println("Cache hit on key:"+key+", nothing to insert!");
 			update(key,marks,subjectEnrolled);
 		} else {
 			if (map.size() >= SIZE) {
 				int leastUsedKey = remove();
 				map.remove(leastUsedKey);
 			}
+			System.out.println("Element not present in Cache: "+key);
 			Student std = new Student(key,marks,subjectEnrolled,new Date());
 			insert(std);
 			map.put(key,std);
+			
 		}
+		 System.out.println("After put operation, following stats are generated:");
+		 System.out.println("Least used element:"+pqMarks.peek().getMarks()+", last used at:"+pqDate.peek().timeStamp);
+		 System.out.println("map size:"+map.size());
 		
 	}
 
-	public static void main(String[] args) {
-		LRUCache cache = new LRUCache();
-		cache.put(1, 23, "Maths");
-		cache.put(2,25,"Science");
-		cache.put(3,21,"Science");
-		cache.put(4,27,"Hindi");
-		System.out.println("Value is" +cache.get(1));
-		
-		
-		
-		
-		
-	}
+	
 }
 
 //To Maintain the LRU Cache order based on Timestamp
