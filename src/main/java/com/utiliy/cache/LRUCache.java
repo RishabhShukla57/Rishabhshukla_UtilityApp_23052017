@@ -69,9 +69,7 @@ public class LRUCache {
 			map.put(key,std);
 			
 		}
-		 System.out.println("After put operation, following stats are generated:");
-		 System.out.println("Least used element:"+pqMarks.peek().getMarks()+", last used at:"+pqDate.peek().timeStamp);
-		 System.out.println("map size:"+map.size());
+		
 		
 	}
 

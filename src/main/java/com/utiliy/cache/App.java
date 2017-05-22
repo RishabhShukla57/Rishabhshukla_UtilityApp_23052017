@@ -26,7 +26,7 @@ public class App
     			cache.put(Integer.valueOf(argmnt[0]), Integer.valueOf(argmnt[1]), argmnt[2]);
     		}
     		
-    		System.out.println("File Read");
+    		System.out.println("Please check the cache");
     		
     	} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -43,7 +43,9 @@ public class App
     			bw.write(map.getKey()+" "+student.getMarks()+" "+student.getSubjectEnrolled());
     			bw.newLine();
     		}
-    		System.out.println("File written");
+    		System.out.println(" ");
+    		System.out.println("Please check the file written");
+    		
     	} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
