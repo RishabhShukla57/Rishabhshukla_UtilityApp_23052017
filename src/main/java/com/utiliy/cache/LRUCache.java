@@ -8,7 +8,7 @@ import java.util.TreeMap;
 
 
 public class LRUCache {
-	private static final int SIZE = 3;
+	private static final int SIZE = 10;
 	public Map<Integer, Student> map = new TreeMap<Integer, Student>();
 	MarksComparator marksComparator = new MarksComparator();
 	DateComparator dateComparator = new DateComparator();
