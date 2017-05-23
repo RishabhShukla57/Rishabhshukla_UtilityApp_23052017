@@ -14,8 +14,8 @@ Please change utility.properties file for changing the location from where you w
 File input format:
 ID MARKS SUBJECTENROLLED
  i.e:
- 1 23 english
- 2 21 hindi
- 3 34 maths
- 4 17 socialscience
+ 1 23 english (newLine)
+ 2 21 hindi (newLine)
+ 3 34 maths (newLine)
+ 4 17 socialscience (newLine)
  
